@@ -3,8 +3,7 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-	<!-- UID generator -->
-	<bean id="disposableWorkerIdAssigner" class="com.baidu.fsg.uid.worker.DisposableWorkerIdAssigner" />
+	<bean id="disposableWorkerIdAssigner" class="com.baidu.fsg.uid.worker.MockWorkerIdAssigner"/>
 
 	<bean id="cachedUidGenerator" class="com.baidu.fsg.uid.impl.CachedUidGenerator">
 		<property name="workerIdAssigner" ref="disposableWorkerIdAssigner" />
@@ -32,8 +31,5 @@
 		<!--<property name="rejectedTakeBufferHandler" ref="XxxxYourTakeRejectPolicy"></property>--> 
 		
 	</bean>
-
-	<!-- Import mybatis config -->
-	<import resource="classpath:/uid/mybatis-spring.xml" />
 
 </beans>
